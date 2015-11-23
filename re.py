@@ -72,10 +72,10 @@ def flatten_dict(d):
 
     for key in d:
         if type(d[key]) is dict:
-        	val = d[key].copy()
-        	for ele in val.keys():
-        		val[key+"."+ele] = val.pop(ele)
-        	f.update(flatten_dict(val))
+            val = d[key].copy()
+            for ele in val.keys():
+                val[key+"."+ele] = val.pop(ele)
+            f.update(flatten_dict(val))
         else:
             f.update({key: d[key]})
 
