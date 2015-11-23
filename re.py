@@ -55,7 +55,7 @@ def flatten(lst):
         if type(ele) is list:
             flattened += flatten(ele)
         else:
-        	flattened += [ele]
+            flattened += [ele]
 
     return flattened
 
