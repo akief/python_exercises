@@ -17,11 +17,11 @@ def reverse_rec(s):
     """
     Reverse a string, recursively.
     """
-    
+
     if len(s) == 1:
-    	return s
+        return s
     else:
-    	return s[-1] + reverse_rec(s[:-1])
+        return s[-1] + reverse_rec(s[:-1])
 
 def list_mult(l, n):
     """
@@ -32,11 +32,11 @@ def list_mult(l, n):
     >>> list_mult([1, 2], 3)
     [1, 2, 1, 2, 1, 2]
     """
-    
+
     if n == 0:
-    	return []
+        return []
     else:
-    	return l+list_mult(l,n-1)
+        return l+list_mult(l,n-1)
 
 def flatten(lst):
     """Take a deeply nested list and flatten it to a single level.
@@ -48,7 +48,7 @@ def flatten(lst):
     >>> flatten([1, [2, 3], [[4], [5, [6]]]])
     [1, 2, 3, 4, 5, 6]
     """
-    
+
     flattened = []
 
     for ele in lst:
@@ -72,14 +72,10 @@ def flatten_dict(d):
 
     for key in d:
         if type(d[key]) is dict:
-        	val = d[key].copy()
-        	for ele in val.keys():
-        		val[key+"."+ele] = val.pop(ele)
-        	f.update(flatten_dict(val))
+            val = flatten_dict(d[key].copy())
+            for ele in val.keys():
+                f[key+"."+ele] = val.pop(ele)
         else:
             f.update({key: d[key]})
 
     return f
-
-
-
