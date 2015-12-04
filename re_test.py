@@ -1,4 +1,4 @@
-from re import *
+from rec import *
 
 print ""
 output = factorial(5)
